@@ -1,5 +1,5 @@
 {
-  "name": "RN-snackbar",
+  "name": "@prince8verma/react-native-snackbar",
   "version": "1.0.2",
   "description": "Provide snackbar from top or bottom, as per requirements. Its a simple React-native library, works for both Android and IOS.",
   "main": "snackBar.js",
