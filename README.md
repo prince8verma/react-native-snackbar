@@ -9,7 +9,7 @@ Its has dependency on react-native-simple-events.
 ## Installation
 
 ```
-npm install react-native-snackbar --save
+npm install @prince8verma/react-native-snackbar --save
 ```
 
 ### Implementation
@@ -53,7 +53,5 @@ The option to support:
 |animationTime|Int| 250 | time in ms, duration in which snackbar will complete its open/close animation.|
 |backgroundColor| color string| "#323232" |background color for snackbar|
 |onConfirm| function |undefined |perform some task here on snackbar button press.|
-
-
 
 
