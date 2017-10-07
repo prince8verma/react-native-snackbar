@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/prince8verma/react-native-snackbar/issues"
   },
-  "homepage": "https://github.com/prince8verma/react-native-snackbar#readme"
+  "homepage": "https://github.com/prince8verma/react-native-snackbar#readme",
+  "dependencies": {
+    "react-native-simple-events": "^1.0.1"
+  }
 }

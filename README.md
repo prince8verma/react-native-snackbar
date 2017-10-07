@@ -10,7 +10,6 @@ Its has dependency on react-native-simple-events.
 
 ```
 npm install react-native-snackbar --save
-npm install react-native-simple-events --save
 ```
 
 ### Implementation
