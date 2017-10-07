@@ -1,7 +1,10 @@
 # react-native-snackbar
 
-Provide snackbar from top or bottom, as per requirements.
-Its a simple React-native library, works for both Android and IOS.
+Snackbars are used for displaying a brief message to the user, along with an optional action. 
+They animate up from the bottom of the screen and then disappear shortly afterward.
+This repo provides snackbar that can appear from bottom or top as per requirements.
+
+It is a simple React-native library, works for both Android and IOS.
 
 You have to Just import it and use it.
 Its has dependency on react-native-simple-events.
