@@ -46,7 +46,7 @@
 21 silly publish   devDependencies: {},
 21 silly publish   readme: '# react-native-snackbar\n\nProvide snackbar from top or bottom, as per requirements.\nIts a simple React-native library, works for both Android and IOS.\n\nYou have to Just import it and use it.\nIts has dependency on react-native-simple-events.\n\n## Installation\n\n```\nnpm install react-native-snackbar --save\n```\n\n### Implementation\n```\nimport Snackbar from \'react-native-snackbar\';\n\n<View style={{flxe:1}}>\n    {/*...........Root App code.......*/}\n    <SnackBar id={"Root_App"}/>\n</View>\n```\n\n```\nimport Events from "react-native-simple-events";\n\nEvents.trigger(\'showSnackBar\', {\n            message: "Your custom message",\n            textColor: \'#FFF\',      // message text color\n            position: \'top\',  // enum(top/bottom).\n            confirmText: \'OK\', // button text.\n            buttonColor: \'#03a9f4\', // default button text color\n            duration: 4000,   // (in ms), duartion for which snackbar is visible.\n            animationTime: 250, // time duration in which snackbar will complete its open/close animation.\n            backgroundColor:"#323232", //background color for snackbar\n            onConfirm: () => {},    //  perform some task here on snackbar button press.\n  });\n```\n\n\n\nThe option to support:\n\n|property|type|default|description|\n|--------|----|-------|-----------|\n|message|String|\'Had a snack at snackBar.\'|Message shown in snackbar.|\n|textColor|color string|"#FFF"|message text color|\n|position|enum("top"/"bottom")|"bottom"|position of snackbar|\n|confirmText| "String"| "OK" | button text.|\n|buttonColor| color string| "#03a9f4" |default button text color|\n|duration|Int| 5000 | time in ms, duartion for which snackbar is visible|\n|animationTime|Int| 250 | time in ms, duration in which snackbar will complete its open/close animation.|\n|backgroundColor| color string| "#323232" |background color for snackbar|\n|onConfirm| function |undefined |perform some task here on snackbar button press.|\n\n\n\n\n',
 21 silly publish   readmeFilename: 'README.md',
-21 silly publish   gitHead: '4f08d97820a9e334edba891bd54379405fde76ae',
+21 silly publish   gitHead: '6c1f8d0e0ae73f8e3e73b3751e3604150905f072',
 21 silly publish   _id: '@prince8verma/react-native-snackbar@1.0.0',
 21 silly publish   _shasum: 'ed261a0f79d61974806902f9848b7f3c7b3dc3c6',
 21 silly publish   _from: '.' }
@@ -69,22 +69,22 @@
 31 silly publish uploading /home/prince/.npm/@prince8verma/react-native-snackbar/1.0.0/package.tgz
 32 verbose request uri https://registry.npmjs.org/@prince8verma%2freact-native-snackbar
 33 verbose request sending authorization for write operation
-34 info attempt registry request try #1 at 4:31:09 PM
+34 info attempt registry request try #1 at 4:35:06 PM
 35 verbose request using bearer token for auth
-36 verbose request id bb34bf62f05e55c5
+36 verbose request id aff0fe5142ef51c9
 37 http request PUT https://registry.npmjs.org/@prince8verma%2freact-native-snackbar
 38 http 403 https://registry.npmjs.org/@prince8verma%2freact-native-snackbar
 39 verbose headers { 'content-type': 'application/json',
 39 verbose headers   'cache-control': 'max-age=0',
 39 verbose headers   'content-length': '91',
 39 verbose headers   'accept-ranges': 'bytes',
-39 verbose headers   date: 'Sat, 07 Oct 2017 11:01:13 GMT',
+39 verbose headers   date: 'Sat, 07 Oct 2017 11:05:11 GMT',
 39 verbose headers   via: '1.1 varnish',
 39 verbose headers   connection: 'keep-alive',
-39 verbose headers   'x-served-by': 'cache-lcy1125-LCY',
+39 verbose headers   'x-served-by': 'cache-ams4444-AMS',
 39 verbose headers   'x-cache': 'MISS',
 39 verbose headers   'x-cache-hits': '0',
-39 verbose headers   'x-timer': 'S1507374072.700013,VS0,VE1389' }
+39 verbose headers   'x-timer': 'S1507374310.939578,VS0,VE1616' }
 40 verbose request invalidating /home/prince/.npm/registry.npmjs.org/_40prince8verma_252freact-native-snackbar on PUT
 41 error publish Failed PUT 403
 42 verbose stack Error: You cannot publish over the previously published version 1.0.0. : @prince8verma/react-native-snackbar
