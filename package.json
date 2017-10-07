@@ -1,7 +1,7 @@
 {
-  "name": "react-native-snackbar",
+  "name": "@prince8verma/react-native-snackbar",
   "version": "1.0.0",
-  "description": "",
+  "description": "Provide snackbar from top or bottom, as per requirements. Its a simple React-native library, works for both Android and IOS.",
   "main": "snackBar.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +18,6 @@
   "homepage": "https://github.com/prince8verma/react-native-snackbar#readme",
   "dependencies": {
     "react-native-simple-events": "^1.0.1"
-  }
+  },
+  "devDependencies": {}
 }
