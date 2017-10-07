@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, Animated, StyleSheet} from 'react-native';
+import {Animated, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Events from 'react-native-simple-events';
 
 export default class SnackBar extends Component {
@@ -77,7 +77,11 @@ export default class SnackBar extends Component {
 
     render() {
         let {
-            height, show, message, confirmText, position, top, bottom, textColor, buttonColor, backgroundColor, onConfirm = () => {
+            height, show,
+            message, confirmText,
+            position, top, bottom,
+            textColor, buttonColor, backgroundColor,
+            onConfirm = () => {
             }
         } = this.state;
 
