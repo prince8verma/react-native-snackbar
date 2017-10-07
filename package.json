@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/prince8verma/react-native-snackbar#readme",
   "dependencies": {
-    "react-native-simple-events": "^1.0.1"
+    "react-native-simple-events": "^1.0.2"
   },
   "devDependencies": {}
 }
