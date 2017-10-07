@@ -1,0 +1,19 @@
+{
+  "name": "react-native-snackbar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "snackBar.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prince8verma/react-native-snackbar.git"
+  },
+  "author": "“Prince <“prince.verma@daffodilsw.com”>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prince8verma/react-native-snackbar/issues"
+  },
+  "homepage": "https://github.com/prince8verma/react-native-snackbar#readme"
+}
