@@ -9,6 +9,9 @@ It is a simple React-native library, works for both Android and IOS.
 You have to Just import it and use it.
 Its has dependency on react-native-simple-events.
 
+![Alt text](./images/bottom.png?raw=true "Optional Title")
+![Alt text](./images/top.png?raw=true "Optional Title")
+
 ## Installation
 
 ```
@@ -17,7 +20,7 @@ npm install @prince8verma/react-native-snackbar --save
 
 ### Implementation
 ```
-import Snackbar from 'react-native-snackbar';
+import Snackbar from '@prince8verma/react-native-snackbar';
 
 <View style={{flxe:1}}>
     {/*...........Root App code.......*/}
