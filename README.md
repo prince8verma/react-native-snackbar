@@ -8,6 +8,7 @@ It is a simple React-native library, works for both Android and IOS.
 
 You have to Just import it and use it.
 Its has dependency on react-native-simple-events.
+It is a minimalist implementation of snackbar. It is small and fast. 
 
 ![Alt text](./images/top.png?raw=true "Optional Title")
 ![Alt text](./images/bottom.png?raw=true "Optional Title")
