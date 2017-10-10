@@ -2,6 +2,28 @@ import React, {Component} from 'react';
 import {Animated, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Events from 'react-native-simple-events';
 
+export const showSnackBar = (data = {}) => {
+    let {
+        message = "Your custom message", textColor = '#FFF',
+        position = "bottom", confirmText = "OK", buttonColor = '#03a9f4',
+        duration = 4000, animationTime = 250, backgroundColor = "#323232",
+        onConfirm = () => {
+        }
+    } = data;
+
+    Events.trigger('showSnackBar', {
+        message,
+        textColor,      // message text color
+        position,  // enum(top/bottom).
+        confirmText, // button text.
+        buttonColor, // default button text color
+        duration,// (in ms), duartion for which snackbar is visible.
+        animationTime, // time duration in which snackbar will complete its open/close animation.
+        backgroundColor, //background color for snackbar
+        onConfirm,    //  perform some task here on snackbar button press.
+    });
+};
+
 export default class SnackBar extends Component {
     constructor(props) {
         super(props);

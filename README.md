@@ -30,9 +30,10 @@ import Snackbar from '@prince8verma/react-native-snackbar';
 ```
 
 ```
-import Events from "react-native-simple-events";
+import {showSnackBar} from '@prince8verma/react-native-snackbar';
 
-Events.trigger('showSnackBar', {
+
+showSnackBar({
             message: "Your custom message",
             textColor: '#FFF',      // message text color
             position: 'top',  // enum(top/bottom).
