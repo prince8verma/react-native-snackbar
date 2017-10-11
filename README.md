@@ -32,7 +32,6 @@ import Snackbar from '@prince8verma/react-native-snackbar';
 ```
 import {showSnackBar} from '@prince8verma/react-native-snackbar';
 
-
 showSnackBar({
             message: "Your custom message",
             textColor: '#FFF',      // message text color
@@ -46,7 +45,54 @@ showSnackBar({
   });
 ```
 
+###example
+```
+import React, {Component} from "react";
+import {StyleSheet, View, TouchableOpacity} from "react-native";
+import Snackbar, {showSnackBar} from '@prince8verma/react-native-snackbar'
 
+export default class Demo extends Component {
+
+    onPress = () => {
+        showSnackBar({
+            message: "Hello World",
+            position: 'top',
+            confirmText: 'OK',
+            backgroundColor: "#323232",
+            duration: 6000,
+            onConfirm: () => {
+                alert('hi')
+            }
+        });
+    };
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <TouchableOpacity
+                    style={{backgroundColor: 'red'}}
+                    onPress={this.onPress}>
+                    <Text style={styles.welcome}>
+                        show snackbar
+                    </Text>
+                </TouchableOpacity>
+                {/* place snackbar code en the end of the root component*/}
+                <Snackbar id={"root_app"}/>
+            </View>
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    }
+});
+
+```
 
 The option to support:
 
