@@ -111,11 +111,13 @@ export default class SnackBar extends Component {
             return (
                 <Animated.View style={[{
                     position: 'absolute', flexDirection: 'row',
-                    minHeight: height,
-                    maxHeight: 80,
+                    minHeight: height, maxHeight: 80,
                     backgroundColor: backgroundColor,
-                    left: 0, right: 0, elevation: 24,
+                    left: 0, right: 0,
                     paddingHorizontal: 24,
+                    shadowRadius: 2, shadowColor: 'black',
+                    shadowOffset: {height: 3, width: 1},
+                    shadowOpacity: 0.4, elevation: 24,
                 },
                     position === 'top' && {top: top},
                     position === 'bottom' && {bottom: bottom}
