@@ -7,8 +7,7 @@ export const showSnackBar = (data = {}) => {
         message = "Your custom message", textColor = '#FFF',
         position = "bottom", confirmText = "OK", buttonColor = '#03a9f4',
         duration = 4000, animationTime = 250, backgroundColor = "#323232",
-        onConfirm = () => {
-        }
+        onConfirm = () => {}, ...otherProps
     } = data;
 
     Events.trigger('showSnackBar', {
@@ -21,6 +20,7 @@ export const showSnackBar = (data = {}) => {
         animationTime, // time duration in which snackbar will complete its open/close animation.
         backgroundColor, //background color for snackbar
         onConfirm,    //  perform some task here on snackbar button press.
+        ...otherProps
     });
 };
 
@@ -135,10 +135,10 @@ export default class SnackBar extends Component {
                         confirmText &&
                         <View style={[{flex: 2, paddingLeft: 24}]}>
                             <TouchableOpacity activeOpacity={0.7}
-                                onPress={() => {
-                                    onConfirm && onConfirm();
-                                    this.hideSnackBar();
-                                }} style={{flex: 1}}>
+                                              onPress={() => {
+                                                  onConfirm && onConfirm();
+                                                  this.hideSnackBar();
+                                              }} style={{flex: 1}}>
                                 <View style={[{
                                     flex: 1, alignItems: 'center', justifyContent: 'center'
                                 }]}>
