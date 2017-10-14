@@ -107,47 +107,42 @@ export default class SnackBar extends Component {
             }
         } = this.state;
 
+        let snackbarStyle = [{
+            position: 'absolute', flexDirection: 'row',
+            minHeight: height, maxHeight: 80,
+            backgroundColor: backgroundColor,
+            left: 0, right: 0,
+            paddingHorizontal: 24,
+            shadowRadius: 2, shadowColor: 'black',
+            shadowOffset: {height: 3, width: 1},
+            shadowOpacity: 0.4, elevation: 24,
+        },
+            position === 'top' && {top: top},
+            position === 'bottom' && {bottom: bottom}
+        ];
+        let buttonTextStyle = [{color: buttonColor, fontFamily: "Roboto-Medium", textAlign: 'left', fontSize: 14}];
+        let messageTextStyle = [{color: textColor, fontFamily: "Roboto-Regular", fontSize: 14}];
+
         if (show) {
             return (
-                <Animated.View style={[{
-                    position: 'absolute', flexDirection: 'row',
-                    minHeight: height, maxHeight: 80,
-                    backgroundColor: backgroundColor,
-                    left: 0, right: 0,
-                    paddingHorizontal: 24,
-                    shadowRadius: 2, shadowColor: 'black',
-                    shadowOffset: {height: 3, width: 1},
-                    shadowOpacity: 0.4, elevation: 24,
-                },
-                    position === 'top' && {top: top},
-                    position === 'bottom' && {bottom: bottom}
-                ]}>
-                    <View style={[{flex: 10, paddingVertical: 14}]}>
-                        <Text
-                            ellipsizeMode="tail"
-                            numberOfLines={2}
-                            style={[{
-                                color: textColor, fontFamily: "Roboto-Regular", fontSize: 14,
-                            }]}>
+                <Animated.View style={snackbarStyle}>
+                    <View style={[{flex: 10, paddingVertical: 14, justifyContent: 'center'}]}>
+                        <Text ellipsizeMode="tail" numberOfLines={2} style={messageTextStyle}>
                             {message}
                         </Text>
                     </View>
                     {
                         confirmText &&
                         <View style={[{flex: 2, paddingLeft: 24}]}>
-                            <TouchableOpacity
-                                activeOpacity={0.7}
+                            <TouchableOpacity activeOpacity={0.7}
                                 onPress={() => {
-                                    onConfirm();
+                                    onConfirm && onConfirm();
                                     this.hideSnackBar();
-                                }}
-                                style={{flex: 1}}>
+                                }} style={{flex: 1}}>
                                 <View style={[{
                                     flex: 1, alignItems: 'center', justifyContent: 'center'
                                 }]}>
-                                    <Text style={[{
-                                        color: buttonColor, fontFamily: "Roboto-Medium", textAlign: 'left', fontSize: 14
-                                    }]}>
+                                    <Text style={buttonTextStyle}>
                                         {confirmText.toUpperCase()}
                                     </Text>
                                 </View>
