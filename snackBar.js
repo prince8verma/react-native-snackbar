@@ -7,7 +7,8 @@ export const showSnackBar = (data = {}) => {
         message = "Your custom message", textColor = '#FFF',
         position = "bottom", confirmText = "OK", buttonColor = '#03a9f4',
         duration = 4000, animationTime = 250, backgroundColor = "#323232",
-        onConfirm = () => {}, ...otherProps
+        onConfirm = () => {
+        }, ...otherProps
     } = data;
 
     Events.trigger('showSnackBar', {
@@ -43,6 +44,8 @@ export default class SnackBar extends Component {
             top: new Animated.Value(-48),
             bottom: new Animated.Value(-48)
         };
+
+        this.timeout = undefined;
     }
 
     componentWillMount() {
@@ -59,6 +62,7 @@ export default class SnackBar extends Component {
         let {message, confirmText, onConfirm, position = 'bottom', height = 48, duration = 4000, animationTime = 250, show = true, ...otherOptions} = options;
 
         if (message) {
+            this.timeout && clearTimeout(this.timeout);
             this.setState({
                 message, confirmText,
                 onConfirm, position,
@@ -79,9 +83,9 @@ export default class SnackBar extends Component {
                     Animated.timing(this.state.bottom, {toValue: -1 * height, duration: animationTime}),
                 ]).start();
 
-                setTimeout(() => {
+                this.timeout = setTimeout(() => {
                     this.setState({show: false});
-                }, duration + 500);
+                }, duration + 2 * animationTime);
             });
         }
     };
