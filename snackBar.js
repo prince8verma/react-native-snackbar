@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import {Animated, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Animated, StyleSheet, Text, TouchableOpacity, View, PanResponder, Dimensions} from 'react-native';
 import Events from 'react-native-simple-events';
+
+const width = Dimensions.get('window').width;
 
 export const showSnackBar = (data = {}) => {
     let {
@@ -42,7 +44,25 @@ export default class SnackBar extends Component {
             backgroundColor: '#323232',
 
             top: new Animated.Value(-48),
-            bottom: new Animated.Value(-48)
+            bottom: new Animated.Value(-48),
+        };
+
+        this.panResponder = PanResponder.create({
+            onStartShouldSetPanResponder: () => true,
+            onMoveShouldSetPanResponder: () => true,
+            onStartShouldSetPanResponderCapture: () => false,
+            onMoveShouldSetPanResponderCapture: () => false,
+            onPanResponderMove: this.handlePanResponderMove,
+            onPanResponderRelease: this.handlePanResponderEnd,
+            onPanResponderTerminate: this.handlePanResponderEnd,
+        });
+
+        this.left = 0;
+        this.shouldHide = false;
+
+        this.snackBarSwipeAbleStyle = {
+            opacity: 1,
+            left: this.left,
         };
 
         this.timeout = undefined;
@@ -56,6 +76,7 @@ export default class SnackBar extends Component {
     componentWillUnmount() {
         let {id = null} = this.props;
         Events.remove('showSnackBar', id ? id : '123456789');
+        this.timeout && clearTimeout(this.timeout);
     }
 
     onRequest = (options) => {
@@ -84,6 +105,9 @@ export default class SnackBar extends Component {
                 ]).start();
 
                 this.timeout = setTimeout(() => {
+                    this.snackBarSwipeAbleStyle.opacity = 1;
+                    this.snackBarSwipeAbleStyle.left = 0;
+                    this.updateSnackBarStyle();
                     this.setState({show: false});
                 }, duration + 2 * animationTime);
             });
@@ -101,6 +125,36 @@ export default class SnackBar extends Component {
         ]).start();
     };
 
+    handlePanResponderMove = (e, gestureState) => {
+        this.snackBarSwipeAbleStyle.left = this.left + gestureState.dx;
+        this.setSnackBarOpacity();
+        this.updateSnackBarStyle();
+    }
+
+    handlePanResponderEnd = (e, gestureState) => {
+        this.shouldHide && this.setState({show: false});
+
+        this.snackBarSwipeAbleStyle.opacity = 1;
+        this.snackBarSwipeAbleStyle.left = 0;
+        this.updateSnackBarStyle();
+    }
+
+    updateSnackBarStyle = (style = {}) => {
+        this.snackBar && this.snackBar.setNativeProps({"style": {...this.snackBarSwipeAbleStyle, ...style}});
+    }
+
+    setSnackBarOpacity = () => {
+        let leftFactor = Math.abs(this.snackBarSwipeAbleStyle.left) / width;
+
+        if (leftFactor > 0.5) {
+            this.snackBarSwipeAbleStyle.opacity = 0;
+            this.shouldHide = true;
+        } else {
+            this.snackBarSwipeAbleStyle.opacity = 1 - (leftFactor / 0.5);
+            this.shouldHide = false;
+        }
+    }
+
     render() {
         let {
             height, show,
@@ -114,13 +168,13 @@ export default class SnackBar extends Component {
         let snackbarStyle = [{
             position: 'absolute', flexDirection: 'row',
             minHeight: height, maxHeight: 80,
+            width, // left: 0, right: 0,
             backgroundColor: backgroundColor,
-            left: 0, right: 0,
             paddingHorizontal: 24,
             shadowRadius: 2, shadowColor: 'black',
             shadowOffset: {height: 3, width: 1},
             shadowOpacity: 0.4, elevation: 24,
-        },
+        }, this.snackBarSwipeAbleStyle,
             position === 'top' && {top: top},
             position === 'bottom' && {bottom: bottom}
         ];
@@ -129,7 +183,12 @@ export default class SnackBar extends Component {
 
         if (show) {
             return (
-                <Animated.View style={snackbarStyle}>
+                <Animated.View
+                    style={snackbarStyle}
+                    ref={(snackBar) => {
+                        this.snackBar = snackBar;
+                    }}
+                    {...this.panResponder.panHandlers}>
                     <View style={[{flex: 10, paddingVertical: 14, justifyContent: 'center'}]}>
                         <Text ellipsizeMode="tail" numberOfLines={2} style={messageTextStyle}>
                             {message}
