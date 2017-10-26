@@ -8,7 +8,13 @@ It is a simple React-native library, works for both Android and IOS.
 
 You have to Just import it and use it.
 Its has dependency on react-native-simple-events.
-It is a minimalist implementation of snackbar. It is small and fast. 
+It is a minimalist implementation of snackbar. It is small and fast.
+
+##### Introduced Swipe feature.
+```
+As the snackbar appears you can swipe over the snackbar to hide it. 
+This looks good in app and works great with minimal implementation of code. 
+``` 
 
 ![Alt text](./images/top.png?raw=true "Optional Title")
 ![Alt text](./images/bottom.png?raw=true "Optional Title")
@@ -45,7 +51,7 @@ showSnackBar({
   });
 ```
 
-###example
+### example
 ```
 import React, {Component} from "react";
 import {StyleSheet, View, TouchableOpacity} from "react-native";
