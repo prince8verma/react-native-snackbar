@@ -49,7 +49,7 @@ export default class SnackBar extends Component {
 
         this.panResponder = PanResponder.create({
             onStartShouldSetPanResponder: () => true,
-            onMoveShouldSetPanResponder: () => true,
+            onMoveShouldSetPanResponder: () => false,
             onStartShouldSetPanResponderCapture: () => false,
             onMoveShouldSetPanResponderCapture: () => false,
             onPanResponderMove: this.handlePanResponderMove,
@@ -129,7 +129,7 @@ export default class SnackBar extends Component {
         this.snackBarSwipeAbleStyle.left = this.left + gestureState.dx;
         this.setSnackBarOpacity();
         this.updateSnackBarStyle();
-    }
+    };
 
     handlePanResponderEnd = (e, gestureState) => {
         this.shouldHide && this.setState({show: false});
@@ -137,11 +137,11 @@ export default class SnackBar extends Component {
         this.snackBarSwipeAbleStyle.opacity = 1;
         this.snackBarSwipeAbleStyle.left = 0;
         this.updateSnackBarStyle();
-    }
+    };
 
     updateSnackBarStyle = (style = {}) => {
         this.snackBar && this.snackBar.setNativeProps({"style": {...this.snackBarSwipeAbleStyle, ...style}});
-    }
+    };
 
     setSnackBarOpacity = () => {
         let leftFactor = Math.abs(this.snackBarSwipeAbleStyle.left) / width;
@@ -153,7 +153,7 @@ export default class SnackBar extends Component {
             this.snackBarSwipeAbleStyle.opacity = 1 - (leftFactor / 0.5);
             this.shouldHide = false;
         }
-    }
+    };
 
     render() {
         let {
