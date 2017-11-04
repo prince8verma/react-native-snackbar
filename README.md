@@ -18,7 +18,7 @@ This looks good in app and works great with minimal implementation of code.
 
 ![Alt text](./demo_assets/top.png?raw=true "Snackbar from top")
 ![Alt text](./demo_assets/bottom.png?raw=true "Snackbar from bottom")
-![Alt text](./demo_assets/snackbar_demo.gif?raw=true "Snackbar demo" =250x417)
+![Alt text](./demo_assets/snackbar_demo.gif?raw=true "Snackbar demo")
 
 ## Installation
 
