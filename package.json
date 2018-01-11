@@ -1,6 +1,6 @@
 {
   "name": "@prince8verma/react-native-snackbar",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Provide snackbar from top or bottom, as per requirements. Its a simple React-native library, works for both Android and IOS. It also provide swipe feature to hide snackbar.",
   "main": "snackBar.js",
   "scripts": {

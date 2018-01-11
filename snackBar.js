@@ -195,7 +195,7 @@ export default class SnackBar extends Component {
                         </Text>
                     </View>
                     {
-                        confirmText &&
+                        confirmText ?
                         <View style={[{flex: 2, paddingLeft: 24}]}>
                             <TouchableOpacity activeOpacity={0.7}
                                               onPress={() => {
@@ -210,7 +210,7 @@ export default class SnackBar extends Component {
                                     </Text>
                                 </View>
                             </TouchableOpacity>
-                        </View>
+                        </View> : null
                     }
                 </Animated.View>
             )
